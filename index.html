@@ -1,0 +1,122 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <script src="index.js" defer></script>
+    <style>
+        body {
+            background-color: #1f1e21;
+            color: #f5f1e8;
+            font-family: Arial, sans-serif;
+        }
+
+        input, button {
+            font-family: Arial, sans-serif;
+        }
+    </style>
+</head>
+
+<body style="margin:0; background:#1f1e21; color:#f5f1e8; font-family:Segoe UI, Arial, sans-serif;">
+
+    <div style="height:32px; display:flex; align-items:center; padding-left:10px; -webkit-app-region:drag;">
+    </div>
+
+    <div style="text-align:center;">
+
+        <div class="titlebar">PicarX Remote Control</div>
+        <h1>Rover Camera</h1>
+
+        <div style="width:800px; margin:20px auto; position:relative;">
+            <div id="cameraWindow"
+                style="width:100%; height:450px; background:black; border:1px solid gray;
+                       display:flex; align-items:center; justify-content:center; position:relative;">
+
+                <button id="startBtn"
+                        onclick="startVideo()"
+                        style="padding:10px 25px; border-radius:999px; border:2px solid white; background:white; color:black; font-weight:bold;">
+                    Start Video
+                </button>
+
+                <img id="cameraFeed"
+                     src=""
+                     style="display:none; width:100%; height:100%; position:absolute; top:0; left:0;">
+            </div>
+
+        </div>
+
+        <div style="width:800px; margin:25px auto 0 auto; display:flex; justify-content:center; gap:80px; align-items:flex-start;">
+
+            <div style="width:220px; display:flex; justify-content:center;">
+                <div style="position:relative; width:180px; height:180px;">
+
+                    <button
+                        onclick="sendDirection('stop')"
+                        style="position:absolute; top:50%; left:50%; transform:translate(-50%, -50%);
+                               width:50px; height:50px; border-radius:50%; background:white; border:none;
+                               display:flex; align-items:center; justify-content:center; cursor:pointer;">
+                        <img src="resources/stop.png"
+                             style="width:28px; height:28px;">
+                    </button>
+
+                    <button
+                        onclick="sendDirection('forward')"
+                        style="position:absolute; top:0; left:50%; transform:translateX(-50%);
+                               width:55px; height:55px; border-radius:50%; background:white; border:none;
+                               display:flex; align-items:center; justify-content:center; cursor:pointer;">
+                        <img src="resources/arrow.png" style="width:25px; height:25px; transform:rotate(-90deg);">
+                    </button>
+
+                    <button
+                        onclick="sendDirection('left')"
+                        style="position:absolute; left:0; top:50%; transform:translateY(-50%);
+                               width:55px; height:55px; border-radius:50%; background:white; border:none;
+                               display:flex; align-items:center; justify-content:center; cursor:pointer;">
+                        <img src="resources/arrow.png" style="width:25px; height:25px; transform:rotate(180deg);">
+                    </button>
+
+                    <button
+                        onclick="sendDirection('right')"
+                        style="position:absolute; right:0; top:50%; transform:translateY(-50%);
+                               width:55px; height:55px; border-radius:50%; background:white; border:none;
+                               display:flex; align-items:center; justify-content:center; cursor:pointer;">
+                        <img src="resources/arrow.png" style="width:25px; height:25px; transform:rotate(0deg);">
+                    </button>
+
+                    <button
+                        onclick="sendDirection('backward')"
+                        style="position:absolute; bottom:0; left:50%; transform:translateX(-50%);
+                               width:55px; height:55px; border-radius:50%; background:white; border:none;
+                               display:flex; align-items:center; justify-content:center; cursor:pointer;">
+                        <img src="resources/arrow.png" style="width:25px; height:25px; transform:rotate(90deg);">
+                    </button>
+
+                </div>
+            </div>
+
+            <div style="width:320px; min-height:180px; background:#2a292d; border:1px solid #555; border-radius:12px; padding:20px; box-sizing:border-box; text-align:left;">
+
+                <div style="font-size:20px; font-weight:bold; margin-bottom:15px; text-align:center;">
+                    Rover Status
+                </div>
+
+                <div style="margin-bottom:12px;">
+                    Direction: <span id="direction">None</span>
+                </div>
+
+                <div style="margin-bottom:12px;">
+                    Obstacle Distance: <span id="obstacleDistance">0 cm</span>
+                </div>
+
+                <div style="margin-bottom:12px;">
+                    Cliff Detected: <span id="cliffDetected">No</span>
+                </div>
+
+                <div>
+                    Temperature: <span id="cpuTempValue">0.00&deg;</span>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</body>
+</html>
