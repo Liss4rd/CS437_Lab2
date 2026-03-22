@@ -63,10 +63,6 @@ function handleIncomingLine(line) {
             document.getElementById("cliffDetected").innerText = data.cliff_detected ? "Yes" : "No";
         }
 
-        if (data.sign_detected !== undefined) {
-            document.getElementById("direction").innerText = data.direction;
-        }
-
         if (data.cpu_temp !== undefined) {
             document.getElementById("cpuTempValue").innerText = `${Number(data.cpu_temp).toFixed(1)} \u00B0C`;
         }
